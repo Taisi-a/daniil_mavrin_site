@@ -52,11 +52,25 @@ body {
 
 header {
     background:
-        radial-gradient(circle at 80% 30%,
-            rgba(255, 255, 255, 0.1) 0%,
-            rgba(255, 255, 255, 0.05) 10%,
-            transparent 40%),
-        linear-gradient(135deg, #1a1a1a 0%, #101010 100%);
+        linear-gradient(
+            to bottom,
+            /* Начало: цвет header */
+            rgba(26, 26, 26, 1) 0%,
+            rgba(26, 26, 26, 0.9) 30%,
+            rgba(26, 26, 26, 0.7) 60%,
+            rgba(16, 16, 16, 0.9) 85%,
+            /* Конец: плавно переходим в #101010 */
+            rgba(16, 16, 16, 1) 100%
+        ),
+        /* Радиальный градиент для эффекта свечения */
+        radial-gradient(
+            circle at 80% 20%, /* Немного выше позиция */
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.1) 10%,
+            rgba(255, 255, 255, 0.05) 20%,
+            transparent 50%
+        );
+
     padding-top: 20px;
 }
 /* Если проблема в header*/
