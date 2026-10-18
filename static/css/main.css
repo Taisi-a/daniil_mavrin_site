@@ -363,7 +363,7 @@ header .header-main .image img {
     color: #8D8C8C;
 
     /* Выравнивание по ширине */
-    text-align: justify;
+    text-align: left;
     text-justify: inter-word;
     width: 100%;
 
@@ -616,7 +616,7 @@ header .header-main .image img {
     line-height: 1.5;
     display: block;
 
-    text-align: justify;
+    text-align: left;
     text-justify: inter-word;
     max-width: 500px;
     width: 75%%;
@@ -833,7 +833,7 @@ header .header-main .image img {
     margin-left: 150px;
     margin-top: -40px;
     max-width: 1500px;
-    text-align: justify;
+    text-align: left;
     text-justify: inter-word;
 }
 
@@ -1604,7 +1604,7 @@ header .header-main .image img {
     font-style: italic;
     margin: 0 0 50px 0;
     padding: 0 40px;
-    text-align: justify; /* Выравнивание по ширине */
+    text-align: left; /* Выравнивание по ширине */
     text-justify: inter-word; /* Качественное выравнивание */
     hyphens: auto; /* Перенос слов */
     position: relative;
@@ -2358,7 +2358,7 @@ header .header-main .image img {
     .features .block .info p {
         font-size: 22px;
         line-height: 1.5;
-        text-align: justify;
+        text-align: left;
         text-justify: inter-word;
         width: 100%;
 
@@ -2826,7 +2826,7 @@ header .header-main .image img {
 
     .expirience .list .text {
         margin-left: 30px;
-        text-align: justify;
+        text-align: left;
     }
 
     /* Фото справа */
@@ -3000,7 +3000,7 @@ header .header-main .image img {
         margin-left: 0;
         margin-top: 5px;
         padding: 0;
-        text-align: justify;
+        text-align: left;
         text-justify: inter-word;
         max-width: 100%;
     }
@@ -3263,7 +3263,7 @@ header .header-main .image img {
         margin-left: 0;
         margin-top: 5px;
         padding: 0;
-        text-align: justify;
+        text-align: left;
         text-justify: inter-word;
         max-width: 100%;
     }
@@ -4663,3 +4663,46 @@ header .header-main .image img {
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+
+
+/* ==================== ИСПРАВЛЕНИЯ ДЛЯ ТЕЛЕФОНОВ ==================== */
+
+/* Заголовок «Контакты» был шире экрана и вызывал горизонтальную прокрутку */
+@media (max-width: 799px) {
+    .contacts .title h3,
+    .contacts .title h3::after {
+        font-size: min(110px, 17vw);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Фото больше не наезжает на имя */
+    header .header-main .image {
+        margin-top: -70px;
+    }
+
+    /* Плавно растворяем низ фото, как на десктопе */
+    header .header-main .image img {
+        margin-top: 0;
+        -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 92%);
+        mask-image: linear-gradient(to bottom, #000 70%, transparent 92%);
+    }
+
+    /* Подпись «и соавтор вашего праздника» не уходит за левый край */
+    .header-main .info p {
+        margin-left: 0;
+    }
+}
+
+/* Заголовок «Еще сомневаетесь?» на самых узких экранах (320px) */
+@media (max-width: 360px) {
+    .reviews .title h3,
+    .reviews .title h3::after {
+        font-size: 40px;
+    }
+}
+
+/* Фото в шапке не должно выходить за край экрана */
+header {
+    overflow-x: clip;
+}
