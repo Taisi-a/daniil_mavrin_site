@@ -1,10 +1,12 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, send_from_directory
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
-    return render_template('base.html')
+    # Та же страница, что публикуется на GitHub Pages
+    return send_from_directory(app.root_path, 'index.html')
 
 
 if __name__ == "__main__":
